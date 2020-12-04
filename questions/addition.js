@@ -6,6 +6,26 @@
 
 const addition = (...numbers) => {
   // all your code
+  try {
+    if (numbers.length == 0) {
+      throw new Error("Invalid Input - No Input");
+    } else if (numbers.length !== 0) {
+      let result;
+      numbers.forEach((num) => {
+        if (typeof num !== "number") {
+          throw new Error("Invalid Input- String Detected");
+        } else {
+          result = numbers.reduce((sum = 0, num) => {
+            sum = sum + num;
+            return sum;
+          });
+        }
+      });
+      return result;
+    }
+  } catch (err) {
+    throw err;
+  }
 };
 
 module.exports = addition;
